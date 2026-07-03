@@ -25,4 +25,4 @@ This project demonstrates key frontend development skills, including:
 * Using semantic HTML and CSS.
 * Adding interactivity with JavaScript form validation.
 * Hosting the website on Netlify.
-*
+
