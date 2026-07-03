@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Mantra Travels</title>
+    <meta name="description" content="Welcome to Mantra Travels. Explore global holiday destinations, premium travel packages, and book your next dream vacation with our local experts.">
+    <meta name="keywords" content="Mantra Travels, travel agency, vacation packages, tour operators, book custom holidays">
+    
+    <!-- Premium Global Page Styles -->
+    <style>
+        /* Base Resets & Layout Rules */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+        .text-center {
+            text-align: center;
+        }
+        
+        /* Unified Header & Nav Elements */
+        header {
+            background-color: #182b33;
+            padding: 1.2rem 0;
+            position: relative;
+            z-index: 1000;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            color: #fff;
+            font-size: 1.6rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+        .logo span {
+            color: #4ea8de; /* Consistent light blue branding */
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 1.8rem;
+        }
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #fff;
+            border-bottom: 2px solid #4ea8de;
+            padding-bottom: 4px;
+        }
+
+        /* Menu Toggle (Hamburger Icon) - Hidden on Desktop */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Showcase Banner Header */
+        .hero-banner {
+            background-color: #1c313a; 
+            background-image: linear-gradient(rgba(24, 43, 51, 0.6), rgba(24, 43, 51, 0.5)), 
+                              url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1600&auto=format&fit=crop');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 9rem 0;
+            text-align: center;
+        }
+        .hero-banner h1 {
+            font-size: 3.2rem;
+            margin: 0 0 1rem 0;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        .hero-banner p {
+            font-size: 1.3rem;
+            color: #e2e8f0;
+            max-width: 700px;
+            margin: 0 auto 2.5rem auto;
+            line-height: 1.6;
+        }
+        .btn-primary {
+            display: inline-block;
+            background-color: #0077b6;
+            color: #fff;
+            padding: 0.9rem 2.2rem;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+            font-size: 1.05rem;
+            transition: background 0.2s ease, transform 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0, 119, 182, 0.3);
+        }
+        .btn-primary:hover {
+            background-color: #0096c7;
+            transform: translateY(-2px);
+        }
+
+        /* Structured Features Section */
+        .services-section {
+            background-color: #f8f9fa;
+            padding: 6rem 0;
+        }
+        .services-section h2 {
+            font-size: 2.4rem;
+            color: #182b33;
+            margin: 0 0 0.5rem 0;
+            font-weight: 700;
+        }
+        .section-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 4rem auto;
+            line-height: 1.6;
+        }
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            justify-content: center;
+        }
+        
+        /* Interactive Cards */
+        .service-card {
+            flex: 1 1 300px;
+            max-width: 360px;
+            background: #ffffff;
+            padding: 3.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(24, 43, 51, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(24, 43, 51, 0.09);
+        }
+        .icon-wrapper {
+            width: 68px;
+            height: 68px;
+            background-color: #e0f2fe;
+            color: #0077b6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            margin: 0 auto 1.8rem auto;
+        }
+        .icon-wrapper svg {
+            width: 32px;
+            height: 32px;
+        }
+        .service-card h3 {
+            font-size: 1.4rem;
+            color: #182b33;
+            margin: 0 0 0.9rem 0;
+            font-weight: 600;
+        }
+        .service-card p {
+            color: #555;
+            font-size: 0.98rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Global Footer Layout */
+        footer {
+            background-color: #182b33;
+            color: #ccc; /* Uniform silver text */
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        footer p span {
+            color: #4ea8de; /* Uniform matching blue branding link */
+            font-weight: 600;
+        }
+
+        /* Responsive Mobile Styles Media Query */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #182b33;
+                padding: 1.5rem 0;
+                gap: 1.5rem;
+                text-align: center;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links a:hover, .nav-links a.active {
+                border-bottom: none;
+                color: #4ea8de;
+            }
+            .hero-banner {
+                padding: 6rem 0;
+            }
+            .hero-banner h1 {
+                font-size: 2.2rem;
+            }
+            .hero-banner p {
+                font-size: 1.1rem;
+            }
+            .services-section {
+                padding: 4rem 0;
+            }
+            .services-section h2 {
+                font-size: 1.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Navigation Header Layout -->
+    <header>
+        <div class="navbar container">
+            <a href="index.html" class="logo">Mantra<span>Travels</span></a>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="booking.html">Booking</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="mobileMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Spotlight Section -->
+        <section class="hero-banner">
+            <div class="container">
+                <h1>Explore The World With Mantra</h1>
+                <p>Plan your next premium escape with fully customized itineraries designed around breathtaking locations and rich local discoveries.</p>
+                <a href="packages.html" class="btn-primary">View Hot Packages</a>
+            </div>
+        </section>
+
+        <!-- Upgraded Features & Services Section -->
+        <section class="services-section">
+            <div class="container text-center">
+                <h2>Why Travel With Mantra Travels?</h2>
+                <p class="section-subtitle">Discover the premium advantages that make your journey seamless, affordable, and deeply memorable.</p>
+                
+                <div class="services-grid">
+                    <!-- Card 1: Expert Guides -->
+                    <div class="service-card">
+                        <div class="icon-wrapper">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+                        </div>
+                        <h3>Expert Guides</h3>
+                        <p>Our handpicked local experts ensure highly safe, insightful, and profoundly immersive cultural journeys through hidden regional gems.</p>
+                    </div>
+
+                    <!-- Card 2: Affordable Packages -->
+                    <div class="service-card">
+                        <div class="icon-wrapper">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect><line x1="12" y1="4" x2="12" y2="20"></line><line x1="2" y1="12" x2="22" y2="12"></line></svg>
+                        </div>
+                        <h3>Affordable Packages</h3>
+                        <p>Premium global travel experiences meticulously custom-designed to maximize your overall comfort without stretching your holiday budget.</p>
+                    </div>
+
+                    <!-- Card 3: 24/7 Support -->
+                    <div class="service-card">
+                        <div class="icon-wrapper">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"></line><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"></line><line x1="14.83" y1="9.17" x2="19.07" y2="4.93"></line><line x1="4.93" y1="19.07" x2="9.17" y2="14.83"></line></svg>
+                        </div>
+                        <h3>24/7 Support</h3>
+                        <p>We stand by your side at every step of your holiday, ensuring rapid, seamless logistics assistance wherever you choose to roam.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Global Shared Footer Layout -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 <span>Mantra Travels</span> Summer School Project. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Navigation Control Script -->
+    <script>
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

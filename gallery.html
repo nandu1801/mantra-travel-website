@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Photo Gallery | Mantra Travels</title>
+    <meta name="description" content="Browse through beautiful, high-quality images of our top featured travel destinations including Jaipur, Kerala, Goa, and Shimla.">
+    <meta name="keywords" content="travel gallery, destination photos, India tour images, travel photography">
+    
+    <style>
+        /* Modern Reset & Base Styles */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        }
+        body { 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh; 
+            background-color: #f8f9fa; 
+            color: #333; 
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Unified Header & Nav Elements */
+        header {
+            background-color: #182b33;
+            padding: 1.2rem 0;
+            position: relative;
+            z-index: 1000;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            color: #fff;
+            font-size: 1.6rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+        .logo span {
+            color: #4ea8de; /* Consistent light blue branding */
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 1.8rem;
+        }
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #fff;
+            border-bottom: 2px solid #4ea8de;
+            padding-bottom: 4px;
+        }
+
+        /* Menu Toggle (Hamburger Icon) - Hidden on Desktop */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* Professional Inner Page Header Banner */
+        .gallery-banner {
+            background-color: #1c313a; 
+            background-image: linear-gradient(rgba(24, 43, 51, 0.7), rgba(24, 43, 51, 0.6)), 
+                              url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1600&auto=format&fit=crop');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        .gallery-banner h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin: 0 0 0.5rem 0;
+            letter-spacing: -0.5px;
+        }
+        .gallery-banner p {
+            font-size: 1.1rem;
+            color: #e2e8f0;
+        }
+
+        /* Main Content Grid Area */
+        .main-content {
+            flex: 1;
+            padding: 4rem 0;
+        }
+
+        /* Upgraded Photo Grid Container */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(24, 43, 51, 0.04);
+            height: 280px;
+            background-color: #e9ecef;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            display: block;
+        }
+        
+        /* Interactive Animation Scaling Effects */
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        
+        /* Modern Gradient Title Text Overlays */
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(transparent, rgba(24, 43, 51, 0.95));
+            color: #ffffff;
+            padding: 2rem 1.5rem 1.2rem 1.5rem;
+            font-size: 1.15rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Global Footer Layout */
+        footer {
+            background-color: #182b33;
+            color: #ccc; /* Uniform silver text across all web templates */
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        footer p span {
+            color: #4ea8de; /* Uniform matching blue branding link element */
+            font-weight: 600;
+        }
+
+        /* ==========================================================================
+           Responsive Mobile Styles Media Query
+           ========================================================================== */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #182b33;
+                padding: 1.5rem 0;
+                gap: 1.5rem;
+                text-align: center;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links a:hover, .nav-links a.active {
+                border-bottom: none;
+                color: #4ea8de;
+            }
+            .gallery-banner h1 {
+                font-size: 2.2rem;
+            }
+            .main-content {
+                padding: 2.5rem 0;
+            }
+            .gallery-grid {
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Navigation Header Layout -->
+    <header>
+        <div class="navbar container">
+            <a href="index.html" class="logo">Mantra<span>Travels</span></a>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="gallery.html" class="active">Gallery</a></li>
+                    <li><a href="booking.html">Booking</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="mobileMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Professional Section Banner View -->
+    <section class="gallery-banner">
+        <h1>Our Travel Gallery</h1>
+        <p>Visual snapshots of incredible adventures waiting to be experienced.</p>
+    </section>
+
+    <!-- Main Content Showcase Photo Wall Area -->
+    <main class="main-content">
+        <div class="container">
+            <div class="gallery-grid">
+                
+                <!-- Jaipur Card -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?w=600&auto=format&fit=crop&q=60" alt="The royal Hawa Mahal palace architectural facade in Pink City Jaipur">
+                    <div class="gallery-caption">Royal Jaipur Architecture</div>
+                </div>
+
+                <!-- Kerala Card -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1593693397690-362cb9666fc2?w=600&auto=format&fit=crop&q=60" alt="Traditional houseboat cruising down emerald green Kerala backwaters">
+                    <div class="gallery-caption">Serene Kerala Backwaters</div>
+                </div>
+
+                <!-- Goa Card -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=600&auto=format&fit=crop&q=60" alt="Beautiful golden sand beach layout with palm trees in North Goa">
+                    <div class="gallery-caption">Sunny Goa Shorelines</div>
+                </div>
+
+                <!-- Shimla Card -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1597075687490-8f673c6c17f6?w=600&auto=format&fit=crop&q=60" alt="Beautiful snow-covered pine valley mountain skyline landscape view of Shimla">
+                    <div class="gallery-caption">Snowy Shimla Horizons</div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Global Shared Footer Layout -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 <span>Mantra Travels</span> Summer School Project. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Navigation Control Script -->
+    <script>
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

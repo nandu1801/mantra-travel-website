@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Mantra Travels</title>
+    <meta name="description" content="Get in touch with Mantra Travels. Visit our office, call us, or send an online message for support with your tour planning.">
+    <meta name="keywords" content="contact mantra travels, travel agency phone, support email, travel office address">
+    
+    <style>
+        /* Modern Reset & Base Styles */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        }
+        body { 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh; 
+            background-color: #f8f9fa; 
+            color: #333; 
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Unified Header & Nav Elements */
+        header {
+            background-color: #182b33;
+            padding: 1.2rem 0;
+            position: relative;
+            z-index: 1000;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            color: #fff;
+            font-size: 1.6rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+        .logo span {
+            color: #4ea8de; /* Consistent light blue branding */
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 1.8rem;
+        }
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #fff;
+            border-bottom: 2px solid #4ea8de;
+            padding-bottom: 4px;
+        }
+
+        /* Menu Toggle (Hamburger Icon) - Hidden on Desktop */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* Professional Inner Page Header Banner */
+        .contact-banner {
+            background-color: #1c313a; 
+            background-image: linear-gradient(rgba(24, 43, 51, 0.7), rgba(24, 43, 51, 0.6)), 
+                              url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1600&auto=format&fit=crop');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        .contact-banner h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin: 0 0 0.5rem 0;
+            letter-spacing: -0.5px;
+        }
+        .contact-banner p {
+            font-size: 1.1rem;
+            color: #e2e8f0;
+        }
+
+        /* Main Content Focus Layout */
+        .main-content {
+            flex: 1;
+            padding: 4rem 0;
+        }
+
+        /* Centered Premium Contact Container */
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(24, 43, 51, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.02);
+        }
+        .contact-container h2 {
+            color: #182b33;
+            margin-bottom: 1.8rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-control {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            color: #333;
+            background-color: #fcfcfc;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .form-control:focus {
+            border-color: #4ea8de;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(78, 168, 222, 0.15);
+            background-color: #fff;
+        }
+        textarea.form-control {
+            resize: vertical;
+        }
+        
+        /* Premium Form Button Styling */
+        .submit-btn {
+            background-color: #0077b6;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.05rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s ease, transform 0.1s ease;
+            box-shadow: 0 4px 12px rgba(0, 119, 182, 0.2);
+        }
+        .submit-btn:hover {
+            background-color: #0096c7;
+        }
+        .submit-btn:active {
+            transform: scale(0.99);
+        }
+        
+        /* Contact Footer Info Card */
+        .office-info {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: #555;
+            font-size: 0.95rem;
+            border-top: 1px dashed #e2e8f0;
+        }
+        .office-info h4 {
+            color: #182b33;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        .office-info p {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        /* Global Footer Layout */
+        footer {
+            background-color: #182b33;
+            color: #ccc; /* Uniform silver text */
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        footer p span {
+            color: #4ea8de; /* Uniform matching blue branding link */
+            font-weight: 600;
+        }
+
+        /* ==========================================================================
+           Responsive Mobile Styles Media Query
+           ========================================================================== */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #182b33;
+                padding: 1.5rem 0;
+                gap: 1.5rem;
+                text-align: center;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links a:hover, .nav-links a.active {
+                border-bottom: none;
+                color: #4ea8de;
+            }
+            .contact-banner h1 {
+                font-size: 2.2rem;
+            }
+            .main-content {
+                padding: 2.5rem 0;
+            }
+            .contact-container {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Navigation Header Layout -->
+    <header>
+        <div class="navbar container">
+            <a href="index.html" class="logo">Mantra<span>Travels</span></a>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="booking.html">Booking</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="mobileMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Professional Section Banner View -->
+    <section class="contact-banner">
+        <h1>Get In Touch</h1>
+        <p>Have questions or ready to map out your journey? Reach out to our specialist agents.</p>
+    </section>
+
+    <!-- Main Content Form Box Area -->
+    <main class="main-content">
+        <div class="container">
+            <div class="contact-container">
+                <h2>Send Us A Message</h2>
+                <form name="contact" method="POST" data-netlify="true">
+                    <input type="hidden" name="form-name" value="contact" />
+                    <div class="form-group">
+                        <input type="text" name="name" class="form-control" placeholder="Full Name" required />
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control" placeholder="Email Address" required />
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" rows="4" class="form-control" placeholder="How can we help you?" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+
+                <div class="office-info">
+                    <h4>Our Office</h4>
+                    <p>📍 Greater Noida, India</p>
+                    <p>📞 +91 98765 43210</p>
+                    <p>📧 info@mantratravels.com</p>
+                    <h4>Our Hours</h4>
+                    <p>Monday - Saturday: 10:00 AM - 5:00 PM</p>
+                    <p>Emergency Travel Support:24*7</p>
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Global Shared Footer Layout -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 <span>Mantra Travels</span> Summer School Project. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Navigation Control Script -->
+    <script>
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

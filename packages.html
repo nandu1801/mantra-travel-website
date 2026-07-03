@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Selling Vacation Packages | Mantra Travels</title>
+    <meta name="description" content="Book affordable, all-inclusive tour packages for Jaipur, Kerala, Goa, and Shimla. Handpicked itineraries with guided transport and stays.">
+    <meta name="keywords" content="travel packages, holiday tours, Jaipur tour package, Kerala house boat package, Goa vacation package">
+    
+    <style>
+        /* Modern Reset & Base Styles */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        }
+        body { 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh; 
+            background-color: #f8f9fa; 
+            color: #333; 
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Unified Header & Nav Elements */
+        header {
+            background-color: #182b33;
+            padding: 1.2rem 0;
+            position: relative;
+            z-index: 1000;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            color: #fff;
+            font-size: 1.6rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+        .logo span {
+            color: #4ea8de; /* Consistent light blue branding */
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 1.8rem;
+        }
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #fff;
+            border-bottom: 2px solid #4ea8de;
+            padding-bottom: 4px;
+        }
+
+        /* Menu Toggle (Hamburger Icon) - Hidden on Desktop */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* Professional Inner Page Header Banner */
+        .packages-banner {
+            background-color: #1c313a; 
+            background-image: linear-gradient(rgba(24, 43, 51, 0.7), rgba(24, 43, 51, 0.6)), 
+                              url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1600&auto=format&fit=crop');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        .packages-banner h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin: 0 0 0.5rem 0;
+            letter-spacing: -0.5px;
+        }
+        .packages-banner p {
+            font-size: 1.1rem;
+            color: #e2e8f0;
+        }
+
+        /* Main Content Focus Layout */
+        .main-content {
+            flex: 1;
+            padding: 4rem 0;
+        }
+
+        /* Modern Grid Layout System */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 1rem;
+        }
+
+        /* Dynamic Destination & Package Cards */
+        .card {
+            position: relative;
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(24, 43, 51, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(24, 43, 51, 0.09);
+        }
+        .package-card-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* Premium Badge Positioning Overlay */
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #0077b6;
+            color: #fff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            z-index: 10;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Card Body Layout styling */
+        .card-body {
+            padding: 1.8rem;
+        }
+        .card-body h2 {
+            color: #182b33;
+            font-size: 1.4rem;
+            margin-bottom: 0.4rem;
+            font-weight: 700;
+        }
+        .card-body .location {
+            color: #4ea8de;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .card-body p {
+            color: #555;
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+
+        /* Global Footer Layout */
+        footer {
+            background-color: #182b33;
+            color: #ccc; /* Uniform silver text */
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        footer p span {
+            color: #4ea8de; /* Uniform matching blue branding link */
+            font-weight: 600;
+        }
+
+        /* ==========================================================================
+           Responsive Mobile Styles Media Query
+           ========================================================================== */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #182b33;
+                padding: 1.5rem 0;
+                gap: 1.5rem;
+                text-align: center;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links a:hover, .nav-links a.active {
+                border-bottom: none;
+                color: #4ea8de;
+            }
+            .packages-banner h1 {
+                font-size: 2.2rem;
+            }
+            .main-content {
+                padding: 2.5rem 0;
+            }
+            .grid {
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Navigation Header Layout -->
+    <header>
+        <div class="navbar container">
+            <a href="index.html" class="logo">Mantra<span>Travels</span></a>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="packages.html" class="active">Packages</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="booking.html">Booking</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="mobileMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Professional Section Banner View -->
+    <section class="packages-banner">
+        <h1>Our Best-Selling Vacation Packages</h1>
+        <p>All-inclusive itineraries featuring premium stays, guided transport, and curated local dining.</p>
+    </section>
+
+    <!-- Main Content Grid Layout Package Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="grid">
+                
+                <!-- Package 1: Royal Heritage Tour -->
+                <div class="card">
+                    <span class="badge">3 Days / 2 Nights</span>
+                    <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?w=600&auto=format&fit=crop&q=60" alt="The beautiful historic Taj Mahal monument in India" class="package-card-img">
+                    <div class="card-body">
+                        <h2>Royal Heritage Tour</h2>
+                        <p class="location">Jaipur, Rajasthan</p>
+                        <p><strong>₹7,499</strong> per person. Explore majestic forts, royal palaces, and vibrant craft bazaars. Includes heritage hotel stay and camel safari ride.</p>
+                    </div>
+                </div>
+
+                <!-- Package 2: Tropical Serenity Escape -->
+                <div class="card">
+                    <span class="badge">4 Days / 3 Nights</span>
+                    <img src="https://images.unsplash.com/photo-1593693397690-362cb9666fc2?w=600&auto=format&fit=crop&q=60" alt="Luxury traditional cruise houseboat along the calm backwaters of Kerala" class="package-card-img">
+                    <div class="card-body">
+                        <h2>Tropical Serenity Escape</h2>
+                        <p class="location">Munnar & Alleppey</p>
+                        <p><strong>₹9,999</strong> per person. Unwind with a 2-night tea hill resort escape followed by a luxury houseboat cruise along the tranquil backwaters.</p>
+                    </div>
+                </div>
+
+                <!-- Package 3: Sun, Sand & Spice Getaway -->
+                <div class="card">
+                    <span class="badge">4 Days / 3 Nights</span>
+                    <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=600&auto=format&fit=crop&q=60" alt="Beautiful sun drenched beach resort shore in Calangute Goa" class="package-card-img">
+                    <div class="card-body">
+                        <h2>Sun, Sand & Spice Getaway</h2>
+                        <p class="location">Calangute, Goa</p>
+                        <p><strong>₹8,999</strong> per person. Relax at a beachfront resort. Includes complimentary water sports activities, a South Goa tour, and a spice farm lunch.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Global Shared Footer Layout -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 <span>Mantra Travels</span> Summer School Project. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Navigation Control Script -->
+    <script>
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

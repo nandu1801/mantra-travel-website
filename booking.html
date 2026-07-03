@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Tour Online | Mantra Travels</title>
+    <meta name="description" content="Secure your dream vacation package. Fill out our online tour booking form to schedule your next trip with Mantra Travels.">
+    <meta name="keywords" content="book tour online, travel booking form, vacation registration, Mantra travels booking">
+    
+    <style>
+        /* Modern Reset & Base Styles */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        }
+        body { 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh; 
+            background-color: #f8f9fa; 
+            color: #333; 
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Unified Header & Nav Elements */
+        header {
+            background-color: #182b33;
+            padding: 1.2rem 0;
+            position: relative;
+            z-index: 1000;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            color: #fff;
+            font-size: 1.6rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+        .logo span {
+            color: #4ea8de; /* Consistent light blue branding */
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 1.8rem;
+        }
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #fff;
+            border-bottom: 2px solid #4ea8de;
+            padding-bottom: 4px;
+        }
+
+        /* Menu Toggle (Hamburger Icon) - Hidden on Desktop */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* Professional Inner Page Header Banner */
+        .booking-banner {
+            background-color: #1c313a; 
+            background-image: linear-gradient(rgba(24, 43, 51, 0.7), rgba(24, 43, 51, 0.6)), 
+                              url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1600&auto=format&fit=crop');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        .booking-banner h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin: 0 0 0.5rem 0;
+            letter-spacing: -0.5px;
+        }
+        .booking-banner p {
+            font-size: 1.1rem;
+            color: #e2e8f0;
+        }
+
+        /* Main Content Focus Layout */
+        .main-content {
+            flex: 1;
+            padding: 4rem 0;
+        }
+
+        /* Centered Interactive Premium Form Box */
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 3rem;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(24, 43, 51, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.02);
+        }
+        .form-group {
+            margin-bottom: 1.8rem;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            font-weight: 600;
+            color: #182b33;
+            font-size: 0.95rem;
+        }
+        .form-control {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            color: #333;
+            background-color: #fcfcfc;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .form-control:focus {
+            border-color: #4ea8de;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(78, 168, 222, 0.15);
+            background-color: #fff;
+        }
+        
+        /* Premium Action Button styling */
+        .btn-submit {
+            background-color: #0077b6;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.05rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s ease, transform 0.1s ease;
+            box-shadow: 0 4px 12px rgba(0, 119, 182, 0.2);
+        }
+        .btn-submit:hover {
+            background-color: #0096c7;
+        }
+        .btn-submit:active {
+            transform: scale(0.99);
+        }
+
+        /* Global Footer Layout */
+        footer {
+            background-color: #182b33;
+            color: #ccc; /* Uniform silver text */
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        footer p span {
+            color: #4ea8de; /* Uniform matching blue branding link */
+            font-weight: 600;
+        }
+
+        /* ==========================================================================
+           Responsive Mobile Styles Media Query
+           ========================================================================== */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #182b33;
+                padding: 1.5rem 0;
+                gap: 1.5rem;
+                text-align: center;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links a:hover, .nav-links a.active {
+                border-bottom: none;
+                color: #4ea8de;
+            }
+            .booking-banner h1 {
+                font-size: 2.2rem;
+            }
+            .main-content {
+                padding: 2.5rem 0;
+            }
+            .form-container {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Navigation Header Layout -->
+    <header>
+        <div class="navbar container">
+            <a href="index.html" class="logo">Mantra<span>Travels</span></a>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="booking.html" class="active">Booking</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="mobileMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Professional Section Banner View -->
+    <section class="booking-banner">
+        <h1>Tour Booking Form</h1>
+        <p>Plan your escape. Fill out the fields below and our agents will process your request.</p>
+    </section>
+
+    <!-- Main Content Form Submission Area -->
+    <main class="main-content">
+        <div class="container">
+            <div class="form-container">
+                <form action="#" method="POST">
+                    
+                    <!-- Full Name -->
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" class="form-control" placeholder="Enter your full name" required>
+                    </div>
+
+                    <!-- Email Address -->
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" placeholder="example@domain.com" required>
+                    </div>
+
+                    <!-- Destination Selector -->
+                    <div class="form-group">
+                        <label for="destination">Select Destination</label>
+                        <select id="destination" class="form-control" required>
+                            <option value="" disabled selected>-- Choose an option --</option>
+                            <option value="jaipur">Jaipur, Rajasthan</option>
+                            <option value="kerala">Munnar, Kerala</option>
+                            <option value="goa">North Goa Beaches</option>
+                            <option value="shimla">Shimla, Himachal</option>
+                        </select>
+                    </div>
+
+                    <!-- Travel Date -->
+                    <div class="form-group">
+                        <label for="travelDate">Travel Date</label>
+                        <input type="date" id="travelDate" class="form-control" required>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn-submit">Submit Booking Request</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Global Shared Footer Layout -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 <span>Mantra Travels</span> Summer School Project. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Navigation Control Script -->
+    <script>
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

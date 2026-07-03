@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Mantra Travels</title>
+    <style>
+        /* Modern Reset & Base Styles */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        }
+        body { 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh; 
+            background-color: #f8f9fa; 
+            color: #333; 
+        }
+
+        /* Unified Header & Nav Elements */
+        header {
+            background-color: #182b33;
+            padding: 1.2rem 0;
+            position: relative;
+            z-index: 1000;
+        }
+        .navbar {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            color: #fff;
+            font-size: 1.6rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+        .logo span {
+            color: #4ea8de; /* Consistent light blue branding */
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 1.8rem;
+        }
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #fff;
+            border-bottom: 2px solid #4ea8de;
+            padding-bottom: 4px;
+        }
+
+        /* Menu Toggle (Hamburger Icon) - Hidden on Desktop */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* Professional Inner Page Header Banner */
+        .about-banner {
+            background-color: #1c313a; 
+            background-image: linear-gradient(rgba(24, 43, 51, 0.7), rgba(24, 43, 51, 0.6)), 
+                              url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1600&auto=format&fit=crop');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        .about-banner h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+
+        /* Main Content Container Layout */
+        .main-content {
+            flex: 1;
+            width: 90%;
+            max-width: 900px;
+            margin: 4rem auto;
+            box-sizing: border-box;
+        }
+        
+        /* Content Card styling for a premium presentation */
+        .content-card {
+            background: #ffffff;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(24, 43, 51, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.02);
+            margin-bottom: 2.5rem;
+        }
+        
+        h2 { 
+            color: #182b33; 
+            font-size: 1.6rem; 
+            margin: 0 0 1.2rem 0; 
+            border-left: 4px solid #4ea8de; 
+            padding-left: 14px; 
+            font-weight: 700;
+        }
+        p { 
+            line-height: 1.8; 
+            margin-bottom: 1.5rem; 
+            color: #555; 
+            font-size: 1.05rem;
+        }
+        p:last-child {
+            margin-bottom: 0;
+        }
+        ul { 
+            margin-left: 0; 
+            margin-bottom: 0; 
+            list-style-type: none;
+        }
+        li { 
+            margin-bottom: 0.8rem; 
+            color: #555; 
+            font-size: 1.05rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4ea8de;
+            font-weight: bold;
+        }
+
+        /* Global Footer Layout */
+        footer {
+            background-color: #182b33;
+            color: #ccc; /* Uniform silver text */
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        footer p span {
+            color: #4ea8de; /* Uniform matching blue branding link */
+            font-weight: 600;
+        }
+
+        /* Responsive Mobile Styles Media Query */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #182b33;
+                padding: 1.5rem 0;
+                gap: 1.5rem;
+                text-align: center;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links a:hover, .nav-links a.active {
+                border-bottom: none;
+                color: #4ea8de;
+            }
+            .about-banner h1 {
+                font-size: 2.2rem;
+            }
+            .content-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Navigation Header Layout -->
+    <header>
+        <div class="navbar">
+            <a href="index.html" class="logo">Mantra<span>Travels</span></a>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="booking.html">Booking</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="mobileMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Professional Section Banner View -->
+    <section class="about-banner">
+        <h1>About Our Project</h1>
+    </section>
+
+    <!-- Main Content Focus Showcase Area -->
+    <main class="main-content">
+        <div class="content-card">
+            <h2>Our Story</h2>
+            <p><strong>Mantra Travels</strong> is an elite showcase frontend design project created to demonstrate pristine web design layouts, clean semantic structures, and fast client-side interaction experiences.</p>
+            <p>Our platform helps travelers effortlessly preview beautiful regional choices, evaluate structured holiday itineraries, and process web booking inquiries safely from any desktop or dynamic smartphone viewport display layout.</p>
+        </div>
+
+        <div class="content-card">
+            <h2>Project Learning Outcomes</h2>
+            <ul>
+                <li>Architecting responsive multi-page web platform link nodes.</li>
+                <li>Structuring modern semantic HTML document outlines alongside customized CSS.</li>
+                <li>Executing swift viewport adaptive elements for fluid cross-device UI viewing profiles.</li>
+                <li>Applying modern CSS layout grids, background imagery filters, and variable system text rules.</li>
+            </ul>
+        </div>
+    </main>
+
+    <!-- Global Shared Footer Layout -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 <span>Mantra Travels</span> Summer School Project. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Mobile Responsive Menu Control Script -->
+    <script>
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
